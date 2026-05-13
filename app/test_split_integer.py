@@ -36,3 +36,12 @@ def test_difference_between_max_and_min_should_be_not_greater_than() -> None:
     assert max(m.split_integer(17, 4)) - min(m.split_integer(17, 4)) <= 1
     assert max(m.split_integer(32, 6)) - min(m.split_integer(32, 6)) <= 1
     assert max(m.split_integer(6, 2)) - min(m.split_integer(6, 2)) <= 1
+
+
+def test_should_contain_only_integers() -> None:
+    assert all(isinstance(x, int) for x in m.split_integer(17, 4))
+    assert all(isinstance(x, int) for x in m.split_integer(32, 6))
+
+
+def test_should_return_list() -> None:
+    assert isinstance(m.split_integer(17, 4), list)
